@@ -109,6 +109,12 @@
           <template slot="sidebar" slot-scope="{ node }">
             <slot name="sidebar" :node="node"></slot>
           </template>
+          
+          <template slot="empty-node" slot-scope="{ node }">
+            <slot name="empty-node" :node="node" v-if="!node.isLeaf && node.children.length == 0 && node.isExpanded">
+              <div> empty </div>
+            </slot>
+          </template>
 
         </sl-vue-tree>
 
